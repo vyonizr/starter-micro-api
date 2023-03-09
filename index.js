@@ -4,6 +4,9 @@ const hostname = '127.0.0.1';
 const port = process.env.PORT || 3000;
 
 const server = http.createServer(function (req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
+  res.setHeader('Access-Control-Max-Age', 60 * 60 * 24 * 30);
   res.writeHead(200, { 'Content-Type': 'application/json' });
   const response = {
     data: [
